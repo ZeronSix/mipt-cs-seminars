@@ -1,4 +1,4 @@
-; task2.asm     reads a number in a bin, dec or hex representation 
+; task2.asm     reads a number in a bin, dec or hex representation. Input: 0/1/3 number
 
 section .bss 
         mode    resb 1          ; read mode
