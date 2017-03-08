@@ -1,6 +1,6 @@
 section .text
-        global  main
-main:
+        global  _start
+_start:
         mov     rax, 1          ; syscall 1 is write
         mov     rdi, 1          ; file handle 1 is stdout
         mov     rsi, msg        ; pointer to output string

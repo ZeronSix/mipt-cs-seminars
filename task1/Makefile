@@ -1,5 +1,5 @@
 all:
 	nasm -f elf64 task1.asm
-	gcc -m64 task1.o
+	ld -m elf_x86_64 task1.o
 	chmod +x a.out
 	./a.out
