@@ -10,6 +10,7 @@ _start:
         push     20
         push     7
         push     8
+        push     256
         call     sum_func
 
 

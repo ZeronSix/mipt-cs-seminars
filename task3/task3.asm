@@ -9,13 +9,13 @@ section .text
         global _start
 
 _start:
-        mov     rax, 5234
+        mov     rax, 3082
         call    print_dec 
 
-        mov     rax, 5234
+        mov     rax, 3082
         call    print_bin 
 
-        mov     rax, 255
+        mov     rax, 3802
         call    print_hex
 
         mov     rax, 60         ; syscall <- 60 (exit)         
