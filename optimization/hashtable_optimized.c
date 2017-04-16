@@ -43,28 +43,12 @@ static unsigned hash(const char* str) {
     );
 }
 
-static unsigned hash_slow(const char* str) {
-    unsigned hashval = 0;
-
-    for (; *str; str++) {
-        hashval  += (unsigned char)(*str);
-        hashval  += (hashval  << 10);
-        hashval  ^= (hashval  >> 6);
-    }
-
-    hashval  += (hashval  << 3);
-    hashval  ^= (hashval  >> 11);
-    hashval  += (hashval  << 15);
-
-    return hashval % BUCKET_COUNT;
-}
-
 HtItem* ht_search(HashTable* ht, const char* s) {
     asm(".intel_syntax noprefix\n\t"
         "mov r9, rdi\n\t" // move ht to r9
         "mov r10, rsi\n\t" // move s to r10
         "mov rdi, r10\n\t"
-        "call hash_slow\n\t"
+        "call hash\n\t"
         "mov rax, [r9 + 8 * rax]\n\t"
         "searchloop_cond:\n\t"
         "test rax, rax\n\t"
